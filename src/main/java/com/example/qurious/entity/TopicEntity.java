@@ -40,11 +40,11 @@ public class TopicEntity implements Serializable {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "topic")
     private Set<PostEntity> posts;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private UserEntity createdBY;
 
     @Lob

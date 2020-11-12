@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "user_security_details")
-public class UserSecurityDetailsEntity implements Serializable {
+@Table(name = "security_details")
+public class SecurityDetailsEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,14 +32,15 @@ public class UserSecurityDetailsEntity implements Serializable {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @NotNull
-    @Column(name = "created_by")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "creator_id", referencedColumnName = "id")
     private UserEntity createdBy;
 
     @Column(name = "modified_at")
     private LocalDateTime modifiedAt;
 
-    @Column(name = "modified_by")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "modifier_id", referencedColumnName = "id")
     private UserEntity modifiedBy;
 
     @Column(name = "last_password_change_at")

@@ -16,7 +16,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserEntity implements Serializable {
 
     @Id
@@ -58,11 +58,11 @@ public class UserEntity implements Serializable {
     private RoleEntity roleEntity;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_profile_id")
-    private UserProfileEntity userProfileEntity;
+    @JoinColumn(name = "profile_id")
+    private ProfileEntity profileEntity;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_security_details")
-    private UserSecurityDetailsEntity userSecurityDetails;
+    @JoinColumn(name = "security_details_id")
+    private SecurityDetailsEntity userSecurityDetails;
 
 }

@@ -40,7 +40,8 @@ public class PostEntity implements Serializable {
     @Column(name = "vote_count")
     private Integer voteCount;
 
-    @Column(name = "created_by")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserEntity createdBy;
 
     @Column(name = "created_at")

@@ -14,8 +14,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "user_profile_entity")
-public class UserProfileEntity implements Serializable {
+@Table(name = "profile")
+public class ProfileEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

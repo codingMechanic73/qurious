@@ -46,18 +46,12 @@ public class RoleEntity implements Serializable {
     @Column(name = "active")
     private boolean active;
 
-    @NotNull
-    @Column(name = "created_by")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "creator_id", referencedColumnName = "id")
     private UserEntity createdBy;
 
     @NotNull
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-
-    @Column(name = "modified_by")
-    private String modifiedBy;
-
-    @Column(name = "modified_at")
-    private LocalDateTime modifiedAt;
 
 }
